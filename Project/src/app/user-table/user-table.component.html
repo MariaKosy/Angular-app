@@ -1,0 +1,93 @@
+<!-- 
+  <table class="table table-striped table-white" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                       [chaked]="selection.hasValue() && !isAllselected()"
+                        [indeterminate]="selection.hasValue() && !isAllselected()"
+                         [aria-label] ="checkboxLabel()">
+         </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDeff="let row">
+          <mat-checkbox (click)="$event.stopProragation()"
+          (change)="$event ? selection.toggle(row) : null"
+           [chacked]="selection.isSelected(row)"
+           [aria-label] ="checkboxLabel()">
+          
+          </mat-checkbox>
+        </td>
+    </ng-container>
+
+     <ng-container matColumnDef="id">
+
+      <th mat-header-cell *matHeaderCellDef> id </th>
+      <td mat-CellDef="let user">{{user.id}}</td>
+    
+    </ng-container>
+    <ng-container matColumnDef="surname">
+
+        <th mat-header-cell *matHeaderCellDef> surname </th>
+        <td mat-CellDef="let user">{{user.firstName}}</td>
+      
+      </ng-container>
+      <ng-container matColumnDef="surname ">
+
+          <th mat-header-cell *matHeaderCellDef> surname  </th>
+          <td mat-CellDef="let user">{{user.lastName}}</td>
+        
+        </ng-container>
+        <ng-container matColumnDef="date of birth">
+
+            <th mat-header-cell *matHeaderCellDef> date of birth </th>
+            <td mat-CellDef="let user">{{user.dateBirth |date:"dd/MM/yyyy"}}</td>
+          
+          </ng-container> -->
+          <!-- <ng-container matColumnDef="mobile number">
+
+              <th mat-header-cell *matHeaderCellDef> mobile number </th>
+              <td mat-CellDef="let user">{{user.phoneNumber}}</td>
+            
+            </ng-container>
+            <ng-container matColumnDef="id">
+
+                <th mat-header-cell *matHeaderCellDef>Edit selected </th>
+                <td mat-CellDef="let user">{{user.adressInfo}}</td>
+                <td >
+                    <button type="button" class="btn btn-danger" ng-click="edit(user)">{{user.changeInfo}}</button>
+                    <button type ="button" class="btn btn-info" ng-click="delete($index)" > {{user.deleteInfo}}</button>
+                    </td>
+              
+              </ng-container>
+              <tr mat-header-cell *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowdef="let row; colums: displayedColumns"
+              (click)="selection.toggle(row)">
+            
+            </tr>
+</table> -->
+<div class="table-responsive"></div>
+<table class="table table-striped table-white">
+  <thead>
+     <th> id </th>
+      <th>name</th>
+      <th>surname</th>
+      <th> date of birth</th>
+      <th> mobile number</th>
+      <th>adress(city + street + housenumber)</th>
+      <th type="button" class="btn btn-danger">Edit selected</th>
+    </thead>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.dateBirth |date:"dd/MM/yyyy"}}</td>
+      <td>{{user.phoneNumber}}</td>
+      <td>{{user.adressInfo}}</td>
+      <td >
+      <button type="button" class="btn btn-danger" ng-click="edit(user)">{{user.changeInfo}}</button>
+      <button type ="button" class="btn btn-info" ng-click="delete($index)" > {{user.deleteInfo}}</button>
+      </td> 
+    </table>
+   
+  
+
